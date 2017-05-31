@@ -1,0 +1,36 @@
+<html>
+	<body>
+		<script>
+			var index=0;
+			var max=400;
+			var center_x=800;
+			var center_y=400;
+			var _x = 0;
+			var _y = 0;
+			var amp = 10;
+			
+			var freq = 100;
+		
+			document.write("<svg height=900 width=1600>");
+			document.write("<path d='M" + center_x + " " + center_y + " C ");
+			for (index; index < max; index++) {
+				_x = center_x + amp*Math.sin(index*freq);
+				_y = center_y + amp*Math.cos(index*freq);
+				
+				//_x = center_x + amp*Math.sin(index*freq);
+				//_y = center_y + amp*Math.cos(index*freq);
+								
+				
+				//_x = center_x + amp*Math.sin(index*freq)*Math.cos(index*freq);
+				//_y = center_y + amp*Math.cos(index*freq)*Math.tan(index*freq);
+				//_x = center_x + amp*Math.tan(index*freq);
+				//_y = center_y + amp*Math.cos(index*freq);
+				document.write(_x + " " + _y + ", ");
+				//freq = freq - 100;
+				amp = index;
+			}
+			document.write("' stroke='black' fill='transparent' />");
+			document.write("</svg>");
+		</script>
+	</body>
+</html>
