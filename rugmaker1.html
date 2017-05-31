@@ -1,0 +1,36 @@
+<html>
+	<body>
+		<script>
+			var index=0;
+			var max=1000;
+			var center_x=800;
+			var center_y=400;
+			var _x = 0;
+			var _y = 0;
+			var amp = 300;
+			var freq = 100 * Math.random();
+			
+			var _red = 255;
+			var _green = 255;
+			var _blue = 255;
+		
+			document.write("<svg height=900 width=1600>");
+			document.write("<path d='M" + center_x + " " + center_y + " C ");
+			for (index; index < max; index++) {
+				//amp = amp * Math.random();
+				_x = center_x + amp*Math.sin(index*freq);
+				_y = center_y + amp*Math.cos(index*freq);
+				document.write(_x + " " + _y + ", ");
+			}
+			document.write("Z' stroke='black");
+			//document.write("' stroke='rgb(");
+			/*_red = Math.random() % 255;
+			_blue = Math.random() % 200;
+			_green = Math.random() % 150;
+			document.write(_red + ", " + _green + ", " + _blue);*/
+			
+			document.write("' fill='transparent' />");
+			document.write("</svg>");
+		</script>
+	</body>
+</html>
