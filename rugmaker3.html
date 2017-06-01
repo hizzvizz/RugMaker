@@ -1,0 +1,50 @@
+<html>
+	<body>
+		<script>
+			function rugmaker(amp, color, freq, max) {
+				var index=0;
+				var center_x=800;
+				var center_y=400;
+				var _x = 0;
+				var _y = 0;
+				var jitter_x;
+				var jitter_y;
+				
+				document.write("<path d='M" + center_x + " " + center_y + " C ");
+				for (index; index < max; index++) {
+					jitter_x = Math.random();
+					jitter_y = Math.random();
+					
+					_x = center_x + (amp+jitter_x)*Math.sin(index*freq);
+					_y = center_y + (amp+jitter_y)*Math.cos(index*freq);
+					document.write(_x + " " + _y + ", ");
+					amp = index;
+				}
+				
+				document.write("' fill='" + color + "'/>");				
+			return 0;
+			}
+		
+			document.write("<svg height=900 width=1600>");
+			var r,g,b,color,max;
+			max = 400;
+			color = "rgb(" + r + "," + g + "," + b + ")";
+			
+			for (var x=0;x<max; x = x + 1) {
+				color = "rgb(" + r + "," + g + "," + b + ")";
+				r = Math.round(255 * Math.random());
+				g = Math.round(255 * Math.random());
+				b = Math.round(255 * Math.random());
+				
+				
+				rugmaker(max-x,color,7,max-x);
+			
+				
+			}
+			
+			
+			
+			document.write("</svg>");
+		</script>
+	</body>
+</html>
